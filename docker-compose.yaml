@@ -3,10 +3,10 @@ version: "3.11"
 services:
   html2pdf:
     build: .
-    container_name: html2pdf_service
+    container_name: html2pdf_mcp
     ports:
       - "8000:8000"   # FastAPI app
-      - "6277:6277"   # MCP server
+      - "9000:9000"   # MCP server
     volumes:
       - .:/app        # Mount code for live reload (optional in dev)
     environment:

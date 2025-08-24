@@ -5,12 +5,12 @@ import tempfile
 import os
 import uuid
 
-mcp = FastMCP("html2pdf_mcp")
+mcp = FastMCP("html2pdf_mcp", port=9000)
 
 temp_dir = tempfile.gettempdir()
 
 mcp.tool()
-def html2pdf(html_code: str, data: dict = {}) -> bytes:
+def html2pdf(html_code: str, data: dict = {}) -> str:
     """
     Convert HTML code to a PDF file.
 
@@ -19,7 +19,7 @@ def html2pdf(html_code: str, data: dict = {}) -> bytes:
         data (dict, optional): A dictionary of data to be used in the HTML template. Defaults to an empty dictionary.
 
     Returns:
-        bytes: The generated PDF file as bytes.
+        str: return link to download the generated PDF file.
     """
 
     # Render the HTML template with the provided data
