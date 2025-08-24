@@ -1,0 +1,13 @@
+version: "3.11"
+
+services:
+  html2pdf:
+    build: .
+    container_name: html2pdf_service
+    ports:
+      - "8000:8000"   # FastAPI app
+      - "6277:6277"   # MCP server
+    volumes:
+      - .:/app        # Mount code for live reload (optional in dev)
+    environment:
+      - PYTHONUNBUFFERED=1
